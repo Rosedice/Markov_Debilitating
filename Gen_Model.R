@@ -40,7 +40,7 @@ result_df <- data.frame()
 for (cov in covariates) {
 cov_formula <- as.formula(paste("~", cov)) 
 model <- msm(state ~ time, subject = ID, data = data,covariates = cov_formula
-,qmatrix = Q_init, method = "CG", death = 4,control = list(fnscale = 500, maxit = 100000))
+,qmatrix = Q_init, method = "SANN", death = 4,control = list(fnscale = 500, maxit = 100000))
 
 msummary<-summary(model) #生成模型总结
 
